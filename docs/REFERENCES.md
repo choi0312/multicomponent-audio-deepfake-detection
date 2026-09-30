@@ -2,11 +2,9 @@
 
 링크는 논문 원문, 공식 코드 또는 공식 모델 카드만 사용했다. 별도 표기가 없는 성능은 이 프로젝트에서 재현했다고 주장하지 않는다.
 
-## 대회
+## 개발 배경
 
-- [DACON 236749 — 딥보이스 범죄 대응을 위한 AI 탐지 모델 경진대회](https://dacon.io/competitions/official/236749/overview/description)
-- [평가 산식](https://dacon.io/competitions/official/236749/overview/evaluation)
-- [규칙](https://dacon.io/competitions/official/236749/overview/rules)
+이 모델은 **행정안전부·한국지능정보사회진흥원 주최**, **국립과학수사연구원 주관**의 오디오 딥페이크 탐지 AI 경진대회에서 개발했다. 평가 지표는 파일·음성·음악 진위 EER와 음성·음악 존재 ROC-AUC를 함께 사용했다.
 
 ## 음성 진위
 
@@ -50,4 +48,3 @@
 ## 저장소에 포함하지 않은 검토 대상
 
 DeepFense, All-Type-ADD, MusicDET, SOFIA, MoM-CLAM, FST, CtrSVDD baseline도 검토했다. 실행 가능한 checkpoint의 라이선스 불명확성, 체크포인트 부재/오류 보고, 자원 비용, 또는 동일 dev에서의 추가 가치 부족 때문에 최종 구성에 넣지 않았다. “논문에서 높은 점수”와 “이 대회에 합법적으로 재현 가능한 개선”을 구분했다.
-

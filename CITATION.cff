@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this repository, cite it and the upstream papers for every component you use."
-title: "Multi-component Audio Deepfake Detection for DACON 236749"
+title: "Multi-Component Audio Deepfake Detection"
 type: software
 authors:
   - family-names: "Choi"
     given-names: "choi0312"
-repository-code: "https://github.com/choi0312/dacon-multicomponent-audio-deepfake-detection"
+repository-code: "https://github.com/choi0312/multicomponent-audio-deepfake-detection"
 date-released: 2026-09-30
 keywords:
   - audio deepfake detection
