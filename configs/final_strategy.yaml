@@ -1,0 +1,54 @@
+# Human-readable record of the frozen v3 strategy. Learned coefficients and
+# third-party weights are intentionally not redistributed in this repository.
+audio:
+  sample_rate: 16000
+  channels: 1
+  maximum_competition_duration_seconds: 60
+
+separation:
+  model: htdemucs_955717e8
+  conditional_on_presence: true
+  shifts: 0
+  overlap: 0.1
+  mixture_consistent_music_residual: true
+
+experts:
+  voice:
+    - df_arena_1b
+    - mms_300m_antideepfake
+  music:
+    - sonics_spectttra
+    - mert_v1_95m
+    - artifactnet_v9_4
+    - fourier_publisher_minimum_filter
+    - fourier_quadratic_lower_envelope
+  context:
+    - panns_cnn14_speech
+    - panns_cnn14_singing
+
+fusion:
+  mode: context_gated
+  coefficient_constraint: non_negative
+  expert_pooling: 0.8_mean_plus_0.2_max
+  component_temperature: 2.0
+  voice_regularization: 0.03
+  music_regularization: 0.003
+  file_regularization: 0.03
+  file_head: learned_union_voice_music_previous
+  voice_v2_probability_blend: 0.5
+  cps_outputs: exact_v2_passthrough
+
+selection:
+  expert_sets: 10
+  training_cohorts: [clean, codec]
+  fusion_variants_per_cohort: 24
+  total_candidates: 480
+  extra_voice_blends: [0.0, 0.25, 0.5, 0.75, 1.0]
+  minimum_real_and_fake_per_selected_group: 10
+
+codec_views:
+  transforms:
+    - mp3_32_kbps
+    - aac_32_kbps
+    - g711_mulaw_8_khz
+  parent_weight_shared_across_views: true
